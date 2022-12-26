@@ -1,0 +1,59 @@
+CREATE DATABASE  IF NOT EXISTS `bicicletas.caba` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `bicicletas.caba`;
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+--
+-- Host: localhost    Database: bicicletas.caba
+-- ------------------------------------------------------
+-- Server version	8.0.28
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `medio_de_pago`
+--
+
+DROP TABLE IF EXISTS `medio_de_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medio_de_pago` (
+  `id_MDP` int NOT NULL,
+  `id_TMP` int NOT NULL,
+  `id_EEMP` int NOT NULL,
+  PRIMARY KEY (`id_MDP`),
+  UNIQUE KEY `id_Medio_de_Pago_UNIQUE` (`id_MDP`),
+  KEY `Tipo de medio de pago_idx` (`id_TMP`,`id_EEMP`),
+  KEY `Id_EEMP_idx` (`id_EEMP`),
+  CONSTRAINT `Id_EEMP` FOREIGN KEY (`id_EEMP`) REFERENCES `entidad_emisora_mp` (`Id_EEMP_MP`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `Id_TMP` FOREIGN KEY (`id_TMP`) REFERENCES `tipo_de_medio_de_pagos` (`Id_TMP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medio_de_pago`
+--
+
+LOCK TABLES `medio_de_pago` WRITE;
+/*!40000 ALTER TABLE `medio_de_pago` DISABLE KEYS */;
+INSERT INTO `medio_de_pago` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,6),(7,1,7),(8,1,8),(9,1,9),(10,1,10),(11,1,11),(12,1,12),(13,1,13),(14,1,14),(15,1,15),(16,1,16),(17,1,17),(18,1,18),(19,1,19),(20,1,20),(21,1,21),(22,1,22),(23,1,23),(24,1,24),(25,1,25),(26,1,26),(27,1,27),(28,1,28),(29,1,29),(30,1,30),(31,1,31),(32,1,32),(33,1,33),(34,1,34),(35,1,35),(36,1,36),(37,1,37),(38,1,38),(39,1,39),(40,1,40),(41,1,41),(42,1,42),(43,1,43),(44,1,44),(45,1,45),(46,1,46),(47,1,47),(48,1,48),(49,1,49),(50,1,50),(51,1,51),(52,1,52),(53,1,53),(54,1,54),(55,1,55),(56,1,56),(57,1,57),(58,1,58),(59,1,59),(60,1,60),(61,1,61),(62,1,62),(63,1,63),(64,1,64),(65,1,65),(66,1,66),(67,1,67),(68,1,68),(69,1,69),(70,1,70),(71,1,71),(72,1,72),(73,1,73),(74,1,74),(75,1,75),(76,1,76),(77,1,77),(78,1,78),(79,1,79),(80,1,80),(81,1,81),(82,2,1),(83,2,2),(84,2,3),(85,2,4),(86,2,5),(87,2,6),(88,2,7),(89,2,8),(90,2,9),(91,2,10),(92,2,11),(93,2,12),(94,2,13),(95,2,14),(96,2,15),(97,2,16),(98,2,17),(99,2,18),(100,2,19),(101,2,20),(102,2,21),(103,2,22),(104,2,23),(105,2,24),(106,2,25),(107,2,26),(108,2,27),(109,2,28),(110,2,29),(111,2,30),(112,2,31),(113,2,32),(114,2,33),(115,2,34),(116,2,35),(117,2,36),(118,2,37),(119,2,38),(120,2,39),(121,2,40),(122,2,41),(123,2,42),(124,2,43),(125,2,44),(126,2,45),(127,2,46),(128,2,47),(129,2,48),(130,2,49),(131,2,50),(132,2,51),(133,2,52),(134,2,53),(135,2,54),(136,2,55),(137,2,56),(138,2,57),(139,2,58),(140,2,59),(141,2,60),(142,2,61),(143,2,62),(144,2,63),(145,2,64),(146,2,65),(147,2,66),(148,2,67),(149,2,68),(150,2,69),(151,2,70),(152,2,71),(153,2,72),(154,2,73),(155,2,74),(156,2,75),(157,2,76),(158,2,77),(159,2,78),(160,2,79),(161,2,80),(162,2,81),(163,3,1),(164,3,2),(165,3,3),(166,3,4),(167,3,5),(168,3,6),(169,3,7),(170,3,8),(171,3,9),(172,3,10),(173,3,11),(174,3,12),(175,3,13),(176,3,14),(177,3,15),(178,3,16),(179,3,17),(180,3,18),(181,3,19),(182,3,20),(183,3,21),(184,3,22),(185,3,23),(186,3,24),(187,3,25),(188,3,26),(189,3,27),(190,3,28),(191,3,29),(192,3,30),(193,3,31),(194,3,32),(195,3,33),(196,3,34),(197,3,35),(198,3,36),(199,3,37),(200,3,38),(201,3,39),(202,3,40),(203,3,41),(204,3,42),(205,3,43),(206,3,44),(207,3,45),(208,3,46),(209,3,47),(210,3,48),(211,3,49),(212,3,50),(213,3,51),(214,3,52),(215,3,53),(216,3,54),(217,3,55),(218,3,56),(219,3,57),(220,3,58),(221,3,59),(222,3,60),(223,3,61),(224,3,62),(225,3,63),(226,3,64),(227,3,65),(228,3,66),(229,3,67),(230,3,68),(231,3,69),(232,3,70),(233,3,71),(234,3,72),(235,3,73),(236,3,74),(237,3,75),(238,3,76),(239,3,77),(240,3,78),(241,3,79),(242,3,80),(243,3,81);
+/*!40000 ALTER TABLE `medio_de_pago` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-12-26 14:59:56
